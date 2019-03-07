@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="{% static 'plugins/morris/morris.css' %}">
       <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
       <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
    </head>
    <body class="fixed-left">
       <div id="wrapper">
@@ -101,6 +102,44 @@
                         </div>
                      </div>
                   </div>
+                  <table id="main_table" class="table table-striped table-bordered">
+                     <thead>
+                        <tr>
+                            <th>MSN</th>
+                            <th>Flight No</th>
+                            <th>Time</th>
+                            <th>Airport</th>
+                            <th>Harness Length</th>
+                            <th>Gross Weight</th>
+                            <th>Pressure</th>
+                            <th>Temperature</th>
+                            <th>Maximum altitude</th>
+                            <th>Fuel capacity (left wing)</th>
+                            <th>Fuel capacity (right wing)</th>
+                            <th>Fuel quantity (left wing)</th>
+                            <th>Fuel quantity (right wing)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {% for data in planedata %}
+                     <tr>
+                         <td>{{ data.msn }}</td>
+                         <td>{{ data.flight_no }}</td>
+                         <td>{{ data.date }}</td>
+                         <td>{{ data.airport }}</td>
+                         <td>{{ data.harness_length }}</td>
+                         <td>{{ data.gross_weight }}</td>
+                         <td>{{ data.atmospheric_pressure }}</td>
+                         <td>{{ data.room_temperature }}</td>
+                         <td>{{ data.max_altitude }}</td>
+                         <td>{{ data.fuelcap_left }}</td>
+                         <td>{{ data.fuelcap_right }}</td>
+                         <td>{{ data.fuelquant_left }}</td>
+                         <td>{{ data.fuelquant_right }}</td>
+                     </tr>
+                     {% endfor %}
+                     </tbody>
+                  </table>
                </div>
             </div>
          </div>
@@ -128,5 +167,14 @@
       <script src="{% static 'js/jquery.core.js' %}"></script>
       <script src="{% static 'js/jquery.app.js' %}"></script>
       <script src="{% static 'pages/jquery.dashboard.js' %}"></script>
+      <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+      <script type="text/javascript">
+         $(document).ready(function() {
+             $('#main_table').DataTable({
+               "scrollX": true
+             });
+         } );
+      </script>
    </body>
 </html>

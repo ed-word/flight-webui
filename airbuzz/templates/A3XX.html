@@ -105,8 +105,9 @@
               <div class="col-12">
                 <div class="card-box">
                   <h4 class="header-title m-t-0 m-b-30">Input data for {{ plane }}</h4>
-                  <form role="form"  method="post" action="http://edward-url" enctype="multipart/form-data">
+                  <form role="form"  method="post" action="https://airbuzz.pythonanywhere.com/form" enctype="multipart/form-data">
                      {% csrf_token %}
+                     <input type="hidden" name="program" value="{{ plane }}">
                     <div class="row">
                       <div class="col-xl-6">
                         <fieldset class="form-group">

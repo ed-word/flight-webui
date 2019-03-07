@@ -95,6 +95,7 @@ def a350View(request, username):
 def searchView(request, username):
     data = {
         "user": dummy.getUserDummyData(),
+        "planedata": dummy.getPlaneData()
     }
     return render(request, 'search.html', data)
 

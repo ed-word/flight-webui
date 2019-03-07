@@ -26,7 +26,9 @@ SECRET_KEY = '+&97l4p4o6&2h^-yqd^gf_l5sr(yjl7)8nm5jgw2e%1ym$7nd!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'airbuzzz.herokuapp.com'
+]
 
 
 # Application definition
@@ -48,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'airbuzz.urls'
@@ -69,8 +72,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'airbuzz.wsgi.application'
 
 
 # Database
@@ -123,6 +124,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets"),
 ]
 
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/assets/'
 
 LOGIN_REDIRECT_URL = 'dashboard/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
