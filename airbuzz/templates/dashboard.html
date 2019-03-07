@@ -1,0 +1,123 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+      <title>Air-Buzz</title>
+      <link rel="stylesheet" href="{% static 'plugins/morris/morris.css' %}">
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+   </head>
+   <body class="fixed-left">
+      <div id="wrapper">
+      <div class="topbar">
+         <div class="topbar-left">
+            <a href="javascript:void(0);" class="logo">
+            <i class="fa fa-plane"></i>
+            <span>Air-Buzz</span>
+            </a>
+         </div>
+         <nav class="navbar-custom">
+            <ul class="list-inline float-right mb-0">
+               <li class="list-inline-item dropdown notification-list">
+                  <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">
+                  <img src="{% static user.img %}" alt="user" class="rounded-circle">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+                     <div class="dropdown-item noti-title">
+                        <h5 class="text-overflow"><small>Hi! {{ user.username }}</small> </h5>
+                     </div>
+                     <a href="{% url 'edit-profile' user.username|lower %}" class="dropdown-item notify-item">
+                     <i class="zmdi zmdi-settings"></i> <span>Settings</span>
+                     </a>
+                     <a href="{% url 'signout' %}" class="dropdown-item notify-item">
+                     <i class="zmdi zmdi-power"></i> <span>Logout</span>
+                     </a>
+                  </div>
+               </li>
+            </ul>
+            <ul class="list-inline menu-left mb-0">
+               <li class="float-left">
+                  <button class="button-menu-mobile open-left waves-light waves-effect">
+                  <i class="zmdi zmdi-menu"></i>
+                  </button>
+               </li>
+            </ul>
+         </nav>
+      </div>
+      <div class="left side-menu">
+      <div class="sidebar-inner slimscrollleft">
+         <div id="sidebar-menu">
+            <ul>
+               <li>
+                  <div class="navbar-user-container">
+                     <img src="{% static user.img %}" alt="user" class="rounded-circle navbar-user-img">
+                     <div class="wid-u-info user-info-container">
+                        <h5 class="m-t-20 m-b-5 user-info">{{ user.name }}</h5>
+                        <div class="inline">
+                           <span class="inline navbar-user-name text-info font-weight-bold">{{ user.username }}</span>
+                        </div>
+                        <p class="text-muted mb-0 font-13">{{ user.email }}</p>
+                     </div>
+                     <div>
+               </li>
+               <li class="text-muted menu-title">Navigation</li>
+               <li class="has_sub">
+               <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Home </span> </a>
+               </li>
+            </ul>
+            <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            </div>
+         </div>
+         <div class="content-page">
+            <div class="content">
+               <div class="container-fluid">
+                  <div class="row">
+                     <div class="col-xl-12">
+                        <div class="page-title-box">
+                           <h4 class="page-title float-left">Home</h4>
+                           <ol class="breadcrumb float-right">
+                              <li class="breadcrumb-item"><a href="javascript:void(0);">Air-Buzz</a></li>
+                              <li class="breadcrumb-item"><a>{{ user.username }}</a></li>
+                              <li class="breadcrumb-item active">Home</li>
+                           </ol>
+                           <div class="clearfix"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <footer class="footer text-right">
+            2019 © Air-Buzz.
+         </footer>
+      </div>
+      <script>
+         var resizefunc = [];
+      </script>
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/tether.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/detect.js' %}"></script>
+      <script src="{% static 'js/fastclick.js' %}"></script>
+      <script src="{% static 'js/jquery.blockUI.js' %}"></script>
+      <script src="{% static 'js/waves.js' %}"></script>
+      <script src="{% static 'js/jquery.nicescroll.js' %}"></script>
+      <script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+      <script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+      <script src="{% static 'plugins/morris/morris.min.js' %}"></script>
+      <script src="{% static 'plugins/raphael/raphael-min.js' %}"></script>
+      <script src="{% static 'plugins/waypoints/lib/jquery.waypoints.js' %}"></script>
+      <script src="{% static 'plugins/counterup/jquery.counterup.min.js' %}"></script>
+      <script src="{% static 'js/jquery.core.js' %}"></script>
+      <script src="{% static 'js/jquery.app.js' %}"></script>
+      <script>
+        var $commit_data  = {{ commit_stat|safe }};
+      </script>
+      <script src="{% static 'pages/jquery.dashboard.js' %}"></script>
+   </body>
+</html>
