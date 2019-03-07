@@ -55,9 +55,45 @@ def dashboardView(request, username):
     }
     return render(request, 'dashboard.html', data)
 
+
 @login_required
 def editProfileView(request, username):
     data = {
         "user": dummy.getUserDummyData(),
     }
     return render(request, 'edit-profile.html', data)
+
+
+@login_required
+def a320View(request, username):
+    data = {
+        "user": dummy.getUserDummyData(),
+        "plane": "A320"
+    }
+    return render(request, 'A3XX.html', data)
+
+
+@login_required
+def a330View(request, username):
+    data = {
+        "user": dummy.getUserDummyData(),
+        "plane": "A330"
+    }
+    return render(request, 'A3XX.html', data)
+
+
+@login_required
+def a350View(request, username):
+    data = {
+        "user": dummy.getUserDummyData(),
+        "plane": "A350"
+    }
+    return render(request, 'A3XX.html', data)
+
+
+@login_required
+def searchView(request, username):
+    data = {
+        "user": dummy.getUserDummyData(),
+    }
+    return render(request, 'search.html', data)

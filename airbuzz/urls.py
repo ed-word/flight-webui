@@ -27,5 +27,9 @@ urlpatterns = [
     url(r'^signout/$', views.signout, name="signout"),
     url(r'^dashboard/$', views.dashboardRedirect),
     url(r'^user/(?P<username>[\w_]{3,50})/dashboard$', views.dashboardView, name="dashboard"),
+    url(r'^user/(?P<username>[\w_]{3,50})/a320$', views.a320View, name="a320"),
+    url(r'^user/(?P<username>[\w_]{3,50})/a330$', views.a330View, name="a330"),
+    url(r'^user/(?P<username>[\w_]{3,50})/a350$', views.a350View, name="a350"),
+    url(r'^user/(?P<username>[\w_]{3,50})/search$', views.searchView, name="search"),
     url(r'^user/(?P<username>[\w_]{3,50})/edit/$', views.editProfileView, name="edit-profile"),
 ]
