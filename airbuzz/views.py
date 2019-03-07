@@ -97,3 +97,4 @@ def searchView(request, username):
         "user": dummy.getUserDummyData(),
     }
     return render(request, 'search.html', data)
+
